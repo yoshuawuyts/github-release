@@ -1,0 +1,23 @@
+[package]
+name = "github-release"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yoshuawuyts/github-release"
+documentation = "https://docs.rs/github-release"
+description = "Convert the latest tag on GitHub to a release."
+authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
+readme = "README.md"
+
+[dependencies]
+quicli = "0.2.0"
+mkdirp = "0.1.0"
+failure = "0.1.1"
+reqwest = "0.8.5"
+directories = "0.8.5"
+dialoguer = "0.1.0"
+serde = "1.0.37"
+serde_derive = "1.0.37"
+serde_json = "1.0.13"
+
+[dev-dependencies]
+clippy = "0.0"

@@ -13,7 +13,7 @@ Convert the latest tag on GitHub to a release..
 
 ## Installation
 ```sh
-$ cargo add github-release
+$ cargo install github-release
 ```
 
 ## License

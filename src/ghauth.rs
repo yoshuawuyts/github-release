@@ -12,6 +12,10 @@ use self::dialoguer::{Input, PasswordInput};
 use self::directories::ProjectDirs;
 use self::failure::Error;
 use self::mkdirp::mkdirp;
+use self::reqwest::{ Client, header::{
+  Headers, UserAgent, ContentType
+  } 
+};
 use std::collections::HashMap;
 
 const GITHUB_URL: &'static str = "https://api.github.com/authorizations";
@@ -62,12 +66,11 @@ impl Authenticator {
     let otp = Input::new("GitHub OTP (optional)").interact()?;
 
     // Perform HTTP request.
-    // FIXME: use the Header enum for User Agent & Content Type.
-    let client = reqwest::Client::new();
-    let mut headers = reqwest::header::Headers::new();
+    let client = Client::new();
+    let mut headers = Headers::new();
     headers.set_raw("X-GitHub-OTP", otp);
-    headers.set_raw("User-Agent", "Rust GH Auth client");
-    headers.set_raw("Content-type", "application/json");
+    headers.set(UserAgent::new("Rust GH Auth client"));
+    headers.set(ContentType::json());
     let mut body = HashMap::new();
     // if let Some(scopes) = self.config.scopes {
     //   body.insert("scopes", *scopes);

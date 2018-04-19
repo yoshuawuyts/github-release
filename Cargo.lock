@@ -376,7 +376,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "github-release"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "clippy 0.0.193 (registry+https://github.com/rust-lang/crates.io-index)",
  "dialoguer 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
